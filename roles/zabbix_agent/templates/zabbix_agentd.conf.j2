@@ -279,7 +279,9 @@ TLSConnect={{ zabbix_agent_tlsconnect }}
 # Mandatory: yes, if TLS certificate or PSK parameters are defined (even for 'unencrypted' connection)
 # Default:
 # TLSAccept=unencrypted
-{% if zabbix_agent_tlsaccept is defined and zabbix_agent_tlsaccept %}
+{% if zabbix_agent_connections_tlsaccept is defined and zabbix_agent_connections_tlsaccept %}
+TLSAccept={{ zabbix_agent_connections_tlsaccept }}
+{% elif zabbix_agent_tlsaccept is defined and zabbix_agent_tlsaccept %}
 TLSAccept={{ zabbix_agent_tlsaccept }}
 {% endif %}
 
